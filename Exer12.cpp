@@ -1,29 +1,30 @@
 #include<iostream>
 using namespace std;
-int getPri(int);
+int isPrime(int);
 
 int main() {
     int input, result;
     cout << "Enter a number:";
     cin >> input;
-    result = getPri(input);
-
+    result = isPrime(input);
     if (result %2) {
         cout << "Number is prime:" << input;
     } else {
         cout << "Number is not prime:" << input;
     }
-
     return 0;
 }
 
-int getPri(int x) {
-        int p = 0;
-        for (int i = 2; i < x; i++) {
-            if (x % i == 0) {
-                p = 1;
-                break;
-            }
-        }
-        return p;
+int checkForPrime(int a){
+	int i = a/2;
+    if(i==1)
+    {
+        return 1;
+    }else if(a %i==0){
+         return 0;
+    }else{
+         i = i -1; 
+         checkForPrime(a);
     }
+}
+
